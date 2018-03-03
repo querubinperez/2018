@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../hero.service';
+import { Hero } from '../hero';
 
 @Component({ 
   selector: 'app-material',
@@ -8,7 +9,7 @@ import { HeroService } from '../hero.service';
 })
 
 export class MaterialComponent implements OnInit {
-
+  heroes: Hero[] = [];
   panelOpenState: boolean = false;
 
   constructor(private heroService: HeroService) { }
