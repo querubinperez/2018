@@ -1,3 +1,42 @@
 <p>
-  material works!
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Heroes
+      </mat-panel-title>
+      <mat-panel-description>
+        Select your heroe
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <mat-select placeholder="Heroes" [(value)]="selected">
+          <mat-option *ngFor="let hero of heroes" [value]="hero.name">
+            {{hero.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+  </mat-expansion-panel>
+  
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Comments
+      </mat-panel-title>
+      <mat-panel-description>
+        <p>Please Type Your Comment About <b>{{selected}}</b></p>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Comment"></textarea>
+  </mat-form-field>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
 </p>

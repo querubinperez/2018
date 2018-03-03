@@ -1,15 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroService } from '../hero.service';
 
-@Component({
+@Component({ 
   selector: 'app-material',
   templateUrl: './material.component.html',
   styleUrls: ['./material.component.css']
 })
+
 export class MaterialComponent implements OnInit {
 
-  constructor() { }
+  panelOpenState: boolean = false;
+
+  constructor(private heroService: HeroService) { }
 
   ngOnInit() {
+    this.getHeroes();
   }
 
+  getHeroes(): void {
+    this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes);
+  }
+
+  //constructor() { }
+
+  //ngOnInit() {
+  //}
 }
